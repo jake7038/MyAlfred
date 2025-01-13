@@ -5,13 +5,26 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import ChatlingBot from "./chatling";
 import imagemLogo from "../assets/iconemyalfred.png"
 import ChatlingWidget from "./chatlingwidget";
-
+import { useEffect } from "react";
 const Pagina = () => {
 
     const [listas, setListas] = useState([]); 
     const [inputValue, setInputValue] = useState("");
+    const [isMobile, setIsMobile] = useState(false);
     
-    
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768); 
+        };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+        window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     const adicionaLista = (nome) => {
         if (nome.trim() === "") return;
         setListas((prevListas) => [...prevListas, { nome, etapas: [], inputTopico: "" }]); 
@@ -115,10 +128,9 @@ const Pagina = () => {
                 <div  style={{position: "sticky",top: "0",height: "100vh",overflowY: "auto"}} className="d-none d-md-block bg-dark col-md-3 p-0 text-center">
                 <ChatlingWidget mode="inline" displayId="chatling-inline-bot" />
                 </div>
+                
             </div>
-            <div  className="d-md-none">
-            <ChatlingWidget mode="default" />
-                </div>
+            {isMobile && <ChatlingWidget mode="default" />}
         </div>
     );
 };
