@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import ChatlingBot from "./chatling";
+import imagemLogo from "../assets/iconemyalfred.png"
 const Pagina = () => {
 
     const [listas, setListas] = useState([]); 
@@ -43,7 +44,7 @@ const Pagina = () => {
             <div className="row flex-row gx-0">
                 <div className="col-md-9 p-4">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <img style={{width: "10%"}} src="src\assets\iconemyalfred.png" alt="" />
+                        <img style={{width: "10%"}} src={imagemLogo} alt="" />
                         <div>
                             <input
                                 placeholder="Adicionar matéria"
