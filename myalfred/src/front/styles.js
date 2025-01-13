@@ -1,12 +1,5 @@
 import styled from "styled-components"
 
-export const ListaTarefas = styled.div`
-    height: 74vh;
-    width: 27rem;
-    overflow-x: hidden;
-    overflow-y: auto;
-    margin: 2% 0% 0% 5%;
-`
 
 export const GridListas = styled.div`
     display: grid;
@@ -16,6 +9,7 @@ export const GridListas = styled.div`
     overflow-x: hidden;
     overflow-y: auto;
     padding: 1rem;
-    
+    text-align: "center";
+    align-itens: "center";
     border-radius: 8px; 
 `;
