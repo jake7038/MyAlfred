@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import ChatlingBot from "./chatling";
 import imagemLogo from "../assets/iconemyalfred.png"
+import ChatlingWidget from "./chatlingwidget";
+
 const Pagina = () => {
 
     const [listas, setListas] = useState([]); 
@@ -42,9 +44,9 @@ const Pagina = () => {
     return (
         <div>
             <div className="row flex-row gx-0">
-                <div className="col-md-9 p-4">
+                <div className="col-md-9 col-sm-12 p-4">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <img style={{width: "10%"}} src={imagemLogo} alt="" />
+                        <img className="d-none d-md-block" style={{width: "10%"}} src={imagemLogo} alt="" />
                         <div>
                             <input
                                 placeholder="Adicionar matéria"
@@ -110,10 +112,13 @@ const Pagina = () => {
                         </GridListas>
                     </div>
                 </div>
-                <div style={{position: "sticky",top: "0",height: "100vh",overflowY: "auto"}} className="bg-dark col-md-3 p-0 text-center">
-                            <ChatlingBot></ChatlingBot>
+                <div  style={{position: "sticky",top: "0",height: "100vh",overflowY: "auto"}} className="d-none d-md-block bg-dark col-md-3 p-0 text-center">
+                <ChatlingWidget mode="inline" displayId="chatling-inline-bot" />
                 </div>
             </div>
+            <div  className="d-md-none">
+            <ChatlingWidget mode="default" />
+                </div>
         </div>
     );
 };
