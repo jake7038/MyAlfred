@@ -17,9 +17,9 @@ const ChatlingBot = () => {
     }, []);
 
     return (
-    <div
+    <div 
         id="chatling-inline-bot"
-        style={{ width: "100%", height: "100%" }}
+        style={{  height: "100%", padding: "0px !important" }}
     ></div>
     );
 };

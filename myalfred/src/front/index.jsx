@@ -41,9 +41,9 @@ const Pagina = () => {
     return (
         <div>
             <div className="row flex-row gx-0">
-                <div className="col-md-10 p-4">
+                <div className="col-md-9 p-4">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <img style={{width: "10%"}} src=".\assets\iconemyalfred.png" alt="" />
+                        <img style={{width: "10%"}} src="src\assets\iconemyalfred.png" alt="" />
                         <div>
                             <input
                                 placeholder="Adicionar matéria"
@@ -109,7 +109,7 @@ const Pagina = () => {
                         </GridListas>
                     </div>
                 </div>
-                <div style={{position: "sticky",top: "0",height: "100vh",overflowY: "auto",}} className="bg-dark col-md-2 p-0 text-center">
+                <div style={{position: "sticky",top: "0",height: "100vh",overflowY: "auto"}} className="bg-dark col-md-3 p-0 text-center">
                             <ChatlingBot></ChatlingBot>
                 </div>
             </div>
