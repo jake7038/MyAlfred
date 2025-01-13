@@ -43,7 +43,7 @@ const Pagina = () => {
             <div className="row flex-row gx-0">
                 <div className="col-md-10 p-4">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <img style={{width: "10%"}} src="src\assets\iconemyalfred.png" alt="" />
+                        <img style={{width: "10%"}} src=".\assets\iconemyalfred.png" alt="" />
                         <div>
                             <input
                                 placeholder="Adicionar matéria"
