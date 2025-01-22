@@ -85,11 +85,11 @@ const Pagina = () => {
                                 <h3 className="text-center d-block font-weight-bold w-100 mensagem-centraliza ">Nenhuma matéria criada</h3>
                             ) : (
                                 listas.map((lista, listaIndex) => (
-                                    <div key={listaIndex} className="card text-white bg-info mb-3 mensagem-vazia" style={{  width: "28.375rem", height: "auto" }}>
-                                        <div className="card-header">
+                                    <div key={listaIndex} className="card text-white bg-info mb-3 mensagem-vazia" style={{ maxWidth: "450px", width: "100%", height: "auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                        <div className="card-header p-0 pb-3 w-95 text-center" >
                                             <h2>{lista.nome}</h2>
                                             <div style={{display: "flex", flexDirection: "row-reverse" ,justifyContent: "space-between",alignItems: "center",}}>
-                                            <FontAwesomeIcon style={{cursor: "pointer"}} icon={faPlus}onClick={!lista.inputTopico? "" : () => adicionaEtapa(listaIndex)} />
+                                            <FontAwesomeIcon style={{cursor: "pointer", paddingLeft: "18px"}} icon={faPlus}onClick={!lista.inputTopico? "" : () => adicionaEtapa(listaIndex)} />
                                             <input  type="text" style={{width: "18rem"}} placeholder="Digite o tópico á adicionar"  value={lista.inputTopico} onChange={(e)=> atualizaInputTopico(e.target.value, listaIndex) } />
                                             </div>
                                             
