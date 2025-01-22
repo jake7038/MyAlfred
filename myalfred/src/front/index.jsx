@@ -6,6 +6,7 @@ import ChatlingBot from "./chatling";
 import imagemLogo from "../assets/iconemyalfred.png"
 import ChatlingWidget from "./chatlingwidget";
 import { useEffect } from "react";
+import "./styles.css";
 const Pagina = () => {
 
     const [listas, setListas] = useState([]); 
@@ -57,7 +58,7 @@ const Pagina = () => {
     return (
         <div>
             <div className="row flex-row gx-0">
-                <div className="col-md-9 col-sm-12 p-4">
+                <div className="col-md-9 col-sm-12 p-4 pb-0">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <img className="d-none d-md-block" style={{width: "10%"}} src={imagemLogo} alt="" />
                         <div>
@@ -70,7 +71,7 @@ const Pagina = () => {
                             />
                             <button
                                 className="btn btn-info"
-                                style={{ width: "auto", height: "50px" }}
+                                style={{ width: "auto", height: "3rem" }}
                                 onClick={() => adicionaLista(inputValue)}
                             >
                                 Adicionar Lista
@@ -81,10 +82,10 @@ const Pagina = () => {
                     <div className="row gx-0">
                         <GridListas>
                             {listas.length === 0 ? (
-                                <p>Nenhuma matéria criada</p>
+                                <h3 className="text-center d-block font-weight-bold w-100 mensagem-centraliza ">Nenhuma matéria criada</h3>
                             ) : (
                                 listas.map((lista, listaIndex) => (
-                                    <div key={listaIndex} className="card text-white bg-info mb-3" style={{  width: "80%", height: "auto" }}>
+                                    <div key={listaIndex} className="card text-white bg-info mb-3 mensagem-vazia" style={{  width: "28.375rem", height: "auto" }}>
                                         <div className="card-header">
                                             <h2>{lista.nome}</h2>
                                             <div style={{display: "flex", flexDirection: "row-reverse" ,justifyContent: "space-between",alignItems: "center",}}>
@@ -125,12 +126,15 @@ const Pagina = () => {
                         </GridListas>
                     </div>
                 </div>
-                <div  style={{position: "sticky",top: "0",height: "100vh",overflowY: "auto"}} className="d-none d-md-block bg-dark col-md-3 p-0 text-center">
+                <div  style={{position: "sticky",top: "0",height: "97vh",overflowY: "auto"}} className="d-none d-md-block bg-dark col-md-3 p-0 text-center">
                 <ChatlingWidget mode="inline" displayId="chatling-inline-bot" />
                 </div>
                 
             </div>
             {isMobile && <ChatlingWidget mode="default" />}
+            <footer className="text-center rodape " style={{height: "3vh", backgroundColor: "#212529", color: "white"}}>
+                <p>&copy; Projeto criado pelo grupo 3 de ADM</p>
+            </footer>
         </div>
     );
 };

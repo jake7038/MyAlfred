@@ -1,0 +1,10 @@
+.mensagem-centraliza {
+    grid-column: span 2;
+    text-align: center;
+    justify-self: center;
+    @media screen and (max-width: 768px) { 
+        .mensagem-centraliza {
+            grid-column: span 1; 
+        }
+    }
+}
