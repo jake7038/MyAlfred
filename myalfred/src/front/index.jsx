@@ -57,27 +57,25 @@ const Pagina = () => {
     
     return (
         <div>
-            <div className="row flex-row gx-0">
+            <div className="row flex-row gx-0" style={{minHeight: "97vh"}}>
                 <div className="col-md-9 col-sm-12 p-4 pb-0">
-                    <div  style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <img className="d-none  d-md-block" style={{width: "10%"}} src={imagemLogo} alt="" />
-                        <div className="">
-                            <input
-                                placeholder="Digite a matéria"
-                                style={{ height: "50%", marginRight: "1rem" }}
-                                value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)}
-                                type="text"
-                            />
-                            <button
-                                className="btn btn-dark"
-                                style={{ width: "auto", height: "3rem" }}
-                                onClick={(e) => adicionaLista(inputValue)}
-                            >
-                                Adicionar Matéria
-                            </button>
-                        </div>
+                <header  className="header-container">
+                    <img className="logo" src={imagemLogo} alt="" />
+                    <div className="input-container">
+                        <input
+                            placeholder="Digite a matéria"
+                            style={{ height: "50%", marginRight: "1rem" }}
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                            type="text"/>
+                        <button
+                            className="btn btn-dark"
+                            style={{ width: "auto", height: "3rem" }}
+                            onClick={() => adicionaLista(inputValue)}>
+                            Adicionar
+                        </button>
                     </div>
+                </header>
                     <hr style={{ marginTop: "1rem" }} />
                     <div className="row gx-0">
                         <GridListas>
@@ -85,7 +83,7 @@ const Pagina = () => {
                                 <h3 className="text-center d-block font-weight-bold w-100 mensagem-centraliza ">Nenhuma matéria criada</h3>
                             ) : (
                                 listas.map((lista, listaIndex) => (
-                                    <div key={listaIndex} className="card text-white bg-dark mb-3 mensagem-vazia" style={{ maxWidth: "450px", width: "100%", height: "auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                    <div key={listaIndex} className="card text-white bg-dark mb-3 mensagem-vazia" style={{ maxWidth: "450px", width: "100%", maxHeight: listas.length < 3 ? "auto" : "auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                                         <div className="card-header p-0 pb-3 w-100 text-center "  >
                                             <h2 className="pt-2 pb-2">{lista.nome}</h2>
                                             <div style={{display: "flex", flexDirection: "row" ,gap: "1rem",alignItems: "center", paddingLeft: "0.5rem", paddingRight: "0.5rem"}}>
@@ -96,9 +94,9 @@ const Pagina = () => {
                                             
                                         </div>
                                         
-                                        <div className="card-body">
+                                        <div className="card-body w-100">
                                             <div style={{display: "flex"}}> 
-                                                <h5 className="card-title">Plano de estudo:</h5>
+                                                <h5 style={{alignSelf: "center"}} className="card-title text-center">Plano de estudo:</h5>
                                             
                                             </div>
                                             {lista.etapas.length === 0 ? (
@@ -109,7 +107,6 @@ const Pagina = () => {
                                                         style={{
                                                             display: "flex",
                                                             flexDirection: "row",
-                                                            alignItems: "baseline",
                                                             gap: "20px",
                                                             justifyContent: "start",
                                                             

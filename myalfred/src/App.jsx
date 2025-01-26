@@ -7,9 +7,8 @@ function App() {
 
   return (
     <div className='brackground-global'>
-
       <Pagina></Pagina>
-      <footer className="text-center rodape " style={{ backgroundColor: "#212529", color: "white", position: "relative"}}>
+            <footer className="text-center rodape " style={{ backgroundColor: "#212529", color: "white", position: "relative"}}>
                 <p style={{margin: "0px", padding: "0px"}}>&copy; Projeto criado pelo grupo 3 de ADM</p>
             </footer>
     </div>
