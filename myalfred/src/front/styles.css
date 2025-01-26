@@ -1,3 +1,14 @@
+html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.brackground-global{
+    background-image: url('https://img.freepik.com/fotos-premium/resumo-liso-vazio-cinza-studio-bem-usar-como-plano-de-fundo-relatorio-de-negocios-digital-modelo-de-site-pano-de-fundo_1258-53273.jpg?semt=ais_hybrid');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .mensagem-centraliza {
     grid-column: span 2;
     text-align: center;
@@ -8,3 +19,4 @@
         }
     }
 }
+

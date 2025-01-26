@@ -12,7 +12,7 @@ const Pagina = () => {
     const [listas, setListas] = useState([]); 
     const [inputValue, setInputValue] = useState("");
     const [isMobile, setIsMobile] = useState(false);
-    
+
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768); 
@@ -59,22 +59,22 @@ const Pagina = () => {
         <div>
             <div className="row flex-row gx-0">
                 <div className="col-md-9 col-sm-12 p-4 pb-0">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <img className="d-none d-md-block" style={{width: "10%"}} src={imagemLogo} alt="" />
-                        <div>
+                    <div  style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <img className="d-none  d-md-block" style={{width: "10%"}} src={imagemLogo} alt="" />
+                        <div className="">
                             <input
-                                placeholder="Adicionar matéria"
+                                placeholder="Digite a matéria"
                                 style={{ height: "50%", marginRight: "1rem" }}
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 type="text"
                             />
                             <button
-                                className="btn btn-info"
+                                className="btn btn-dark"
                                 style={{ width: "auto", height: "3rem" }}
-                                onClick={() => adicionaLista(inputValue)}
+                                onClick={(e) => adicionaLista(inputValue)}
                             >
-                                Adicionar Lista
+                                Adicionar Matéria
                             </button>
                         </div>
                     </div>
@@ -85,12 +85,13 @@ const Pagina = () => {
                                 <h3 className="text-center d-block font-weight-bold w-100 mensagem-centraliza ">Nenhuma matéria criada</h3>
                             ) : (
                                 listas.map((lista, listaIndex) => (
-                                    <div key={listaIndex} className="card text-white bg-info mb-3 mensagem-vazia" style={{ maxWidth: "450px", width: "100%", height: "auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                        <div className="card-header p-0 pb-3 w-95 text-center" >
-                                            <h2>{lista.nome}</h2>
-                                            <div style={{display: "flex", flexDirection: "row-reverse" ,justifyContent: "space-between",alignItems: "center",}}>
-                                            <FontAwesomeIcon style={{cursor: "pointer", paddingLeft: "18px"}} icon={faPlus}onClick={!lista.inputTopico? "" : () => adicionaEtapa(listaIndex)} />
-                                            <input  type="text" style={{width: "18rem"}} placeholder="Digite o tópico á adicionar"  value={lista.inputTopico} onChange={(e)=> atualizaInputTopico(e.target.value, listaIndex) } />
+                                    <div key={listaIndex} className="card text-white bg-dark mb-3 mensagem-vazia" style={{ maxWidth: "450px", width: "100%", height: "auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                        <div className="card-header p-0 pb-3 w-100 text-center "  >
+                                            <h2 className="pt-2 pb-2">{lista.nome}</h2>
+                                            <div style={{display: "flex", flexDirection: "row" ,gap: "1rem",alignItems: "center", paddingLeft: "0.5rem", paddingRight: "0.5rem"}}>
+                                            <input  type="text" style={{width: "90%", alignSelf: "flex-start"}} placeholder="Digite o tópico á adicionar"  value={lista.inputTopico} onChange={(e)=> atualizaInputTopico(e.target.value, listaIndex) } />
+                                            <FontAwesomeIcon style={{cursor: "pointer", fontSize: "1.5rem", transition: "transform 0.2s ease"}} icon={faPlus} onMouseEnter={(e)=> e.target.style.transform = "scale(1.2)" } 
+                                            onMouseLeave={(e)=> e.target.style.transform = "scale(1)"} onClick={!lista.inputTopico? "" : () => adicionaEtapa(listaIndex)} />
                                             </div>
                                             
                                         </div>
@@ -126,15 +127,13 @@ const Pagina = () => {
                         </GridListas>
                     </div>
                 </div>
-                <div  style={{position: "sticky",top: "0",height: "97vh",overflowY: "auto"}} className="d-none d-md-block bg-dark col-md-3 p-0 text-center">
+                <div  style={{position: "sticky",top: "0",height: "auto",overflowY: "auto"}} className="d-none d-md-block bg-dark col-md-3 p-0 text-center">
                 <ChatlingWidget mode="inline" displayId="chatling-inline-bot" />
                 </div>
                 
             </div>
             {isMobile && <ChatlingWidget mode="default" />}
-            <footer className="text-center rodape " style={{height: "3vh", backgroundColor: "#212529", color: "white"}}>
-                <p>&copy; Projeto criado pelo grupo 3 de ADM</p>
-            </footer>
+            
         </div>
     );
 };
